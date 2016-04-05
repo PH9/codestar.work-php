@@ -171,24 +171,24 @@ if ($palindrome == getReversedWord($palindrome)) {
 <p>Please look inside code.</p>
 <?php
 function getMinimumBankNote($moneyValue) {
-  $moneyValue = [
+  $bankCount = [
     '1000' => 0,
     '500'  => 0,
     '100'  => 0
   ];
 
   $temp = floor($moneyValue / 1000);
-  $moneyValue['1000'] = $temp;
+  $bankCount['1000'] = $temp;
   $moneyValue -= $temp * 1000;
 
   $temp = floor($moneyValue / 500);
-  $moneyValue['500'] = $temp;
+  $bankCount['500'] = $temp;
   $moneyValue -= $temp * 500;
 
   $temp = floor($moneyValue / 100);
-  $moneyValue['100'] = $temp;
+  $bankCount['100'] = $temp;
 
-  return $moneyValue;
+  return $bankCount;
 }
 ?>
 <br/><br/>
@@ -205,17 +205,17 @@ function allIntegerThatDivisleBothValue($firstNumber, $secondNumber) {
     $minimum = $secondNumber;
   } else if ($firstNumber == $secondNumber) {
     $minimum = $firstNumber;
-    $allIntegerNumbers[] = $firstNumber;
   }
 
-  for ($i = floor($minimum / 2); $i > 0; --$i) {
-    if ($firstNumber % $i == 0 && $secondNumber %i == 0) {
+  for ($i = $minimum; $i > 0; --$i) {
+    if ($firstNumber % $i == 0 && $secondNumber % $i == 0) {
       $allIntegerNumbers[] = $i;
     }
   }
 
   return $allIntegerNumbers;
 }
+
 ?>
 <br/><br/>
 
@@ -223,7 +223,7 @@ function allIntegerThatDivisleBothValue($firstNumber, $secondNumber) {
 <p>Please look inside code.</p>
 <?php
 function getGreatestCommonFactor($firstNumber, $secondNumber) {
-  return allIntegerThatDivisleBothValue[0];
+  return allIntegerThatDivisleBothValue($firstNumber, $secondNumber)[0];
 }
 ?>
 </body>
